@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#101114"
+    >
+
+    <title>Social</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- LOGIN -->
+
+    <section
+        id="loginScreen"
+        class="screen"
+    >
+
+        <div class="authCard">
+
+            <h1>Social</h1>
+
+            <p class="sub">
+                Iniciar sesión
+            </p>
+
+            <input
+                id="loginPhone"
+                type="tel"
+                inputmode="tel"
+                placeholder="Número de teléfono"
+                autocomplete="tel"
+            >
+
+            <input
+                id="loginPassword"
+                type="password"
+                placeholder="Contraseña"
+                autocomplete="current-password"
+            >
+
+            <button id="loginBtn">
+                Entrar
+            </button>
+
+            <p
+                id="loginMessage"
+                class="message"
+            ></p>
+
+            <button
+                id="showRegisterBtn"
+                class="secondary"
+            >
+                Crear cuenta
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- REGISTRO -->
+
+    <section
+        id="registerScreen"
+        class="screen hidden"
+    >
+
+        <div class="authCard">
+
+            <h1>Crear cuenta</h1>
+
+            <p class="sub">
+                Regístrate
+            </p>
+
+            <input
+                id="registerName"
+                type="text"
+                placeholder="Nombre"
+                maxlength="60"
+                autocomplete="name"
+            >
+
+            <input
+                id="registerPhone"
+                type="tel"
+                inputmode="tel"
+                placeholder="Número de teléfono"
+                autocomplete="tel"
+            >
+
+            <input
+                id="registerBirthday"
+                type="date"
+            >
+
+            <input
+                id="registerUsername"
+                type="text"
+                placeholder="Nombre de usuario"
+                maxlength="30"
+                autocomplete="username"
+            >
+
+            <input
+                id="registerPassword"
+                type="password"
+                placeholder="Contraseña"
+                minlength="6"
+                autocomplete="new-password"
+            >
+
+            <button id="registerBtn">
+                Crear cuenta
+            </button>
+
+            <p
+                id="registerMessage"
+                class="message"
+            ></p>
+
+            <button
+                id="showLoginBtn"
+                class="secondary"
+            >
+                Ya tengo cuenta
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- APLICACIÓN -->
+
+    <section
+        id="mainApp"
+        class="hidden"
+    >
+
+        <!-- BARRA SUPERIOR -->
+
+        <header class="topbar">
+
+            <div class="topbarUser">
+
+                <strong>
+                    Social
+                </strong>
+
+                <span id="topName">
+                    —
+                </span>
+
+            </div>
+
+            <button id="logoutBtn">
+                Salir
+            </button>
+
+        </header>
+
+
+        <!-- NAVEGACIÓN -->
+
+        <nav class="navigation">
+
+            <button
+                data-page="homePage"
+            >
+                Inicio
+            </button>
+
+            <button
+                data-page="chatPage"
+            >
+                Chat
+            </button>
+
+            <button
+                data-page="dialPage"
+            >
+                Marcar
+            </button>
+
+            <button
+                data-page="profilePage"
+            >
+                Perfil
+            </button>
+
+        </nav>
+
+
+        <!-- =========================
+             INICIO
+        ========================== -->
+
+        <main
+            id="homePage"
+            class="page"
+        >
+
+            <div class="card">
+
+                <h2>
+                    Bienvenido
+                </h2>
+
+                <p id="welcomeName">
+                    —
+                </p>
+
+            </div>
+
+
+            <div class="statsGrid">
+
+                <div class="statCard">
+
+                    <span>
+                        Racha
+                    </span>
+
+                    <strong
+                        id="streakValue"
+                    >
+                        1
+                    </strong>
+
+                    <small>
+                        días
+                    </small>
+
+                </div>
+
+
+                <div class="statCard">
+
+                    <span>
+                        Mejor racha
+                    </span>
+
+                    <strong
+                        id="bestStreakValue"
+                    >
+                        1
+                    </strong>
+
+                    <small>
+                        días
+                    </small>
+
+                </div>
+
+
+                <div class="statCard">
+
+                    <span>
+                        Antigüedad
+                    </span>
+
+                    <strong
+                        id="accountDays"
+                    >
+                        0
+                    </strong>
+
+                    <small>
+                        días
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Cuenta
+                </h3>
+
+                <p id="memberSince">
+                    Miembro desde —
+                </p>
+
+            </div>
+
+        </main>
+
+
+        <!-- =========================
+             CHAT
+        ========================== -->
+
+        <main
+            id="chatPage"
+            class="page hidden"
+        >
+
+            <div class="chatLayout">
+
+
+                <!-- USUARIOS -->
+
+                <aside class="users">
+
+                    <h3>
+                        Usuarios
+                    </h3>
+
+                    <input
+                        id="userSearch"
+                        type="search"
+                        placeholder="Buscar usuario..."
+                        autocomplete="off"
+                    >
+
+                    <div
+                        id="usersList"
+                    ></div>
+
+                </aside>
+
+
+                <!-- CONVERSACIÓN -->
+
+                <section class="conversation">
+
+                    <header
+                        class="conversationHeader"
+                    >
+
+                        <div>
+
+                            <strong
+                                id="chatName"
+                            >
+                                Selecciona un usuario
+                            </strong>
+
+                            <span
+                                id="chatStatus"
+                            >
+                                —
+                            </span>
+
+                        </div>
+
+                    </header>
+
+
+                    <div
+                        id="messages"
+                        class="messages"
+                    ></div>
+
+
+                    <!-- MENSAJES -->
+
+                    <div class="composer">
+
+                        <input
+                            id="mediaInput"
+                            type="file"
+                            accept="image/*,video/*,audio/*"
+                            hidden
+                        >
+
+                        <button
+                            id="cameraBtn"
+                            type="button"
+                        >
+                            Cámara
+                        </button>
+
+                        <button
+                            id="mediaBtn"
+                            type="button"
+                        >
+                            Archivo
+                        </button>
+
+                        <input
+                            id="messageInput"
+                            type="text"
+                            placeholder="Escribe un mensaje..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            id="sendBtn"
+                            type="button"
+                        >
+                            Enviar
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+
+        <!-- =========================
+             MARCADOR
+        ========================== -->
+
+        <main
+            id="dialPage"
+            class="page hidden"
+        >
+
+            <div class="dialer">
+
+                <h2>
+                    Marcador
+                </h2>
+
+
+                <input
+                    id="dialNumber"
+                    type="tel"
+                    readonly
+                    placeholder="Número"
+                >
+
+
+                <div class="dialGrid">
+
+                    <button
+                        class="dialKey"
+                        data-key="1"
+                    >
+                        1
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="2"
+                    >
+                        2
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="3"
+                    >
+                        3
+                    </button>
+
+
+                    <button
+                        class="dialKey"
+                        data-key="4"
+                    >
+                        4
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="5"
+                    >
+                        5
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="6"
+                    >
+                        6
+                    </button>
+
+
+                    <button
+                        class="dialKey"
+                        data-key="7"
+                    >
+                        7
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="8"
+                    >
+                        8
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="9"
+                    >
+                        9
+                    </button>
+
+
+                    <button
+                        class="dialKey"
+                        data-key="*"
+                    >
+                        *
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="0"
+                    >
+                        0
+                    </button>
+
+                    <button
+                        class="dialKey"
+                        data-key="#"
+                    >
+                        #
+                    </button>
+
+                </div>
+
+
+                <div class="dialActions">
+
+                    <button
+                        id="deleteDial"
+                        type="button"
+                    >
+                        Borrar
+                    </button>
+
+                    <button
+                        id="callNumberBtn"
+                        class="callButton"
+                        type="button"
+                    >
+                        Llamar
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="callMessage"
+                ></p>
+
+            </div>
+
+        </main>
+
+
+        <!-- =========================
+             PERFIL
+        ========================== -->
+
+        <main
+            id="profilePage"
+            class="page hidden"
+        >
+
+            <div class="profileCard">
+
+                <div
+                    id="avatar"
+                    class="avatar"
+                >
+                    ?
+                </div>
+
+
+                <h2
+                    id="profileName"
+                >
+                    —
+                </h2>
+
+
+                <p
+                    id="profileUsername"
+                >
+                    —
+                </p>
+
+
+                <p
+                    id="profilePhone"
+                >
+                    —
+                </p>
+
+
+                <p
+                    id="profileBirthday"
+                >
+                    —
+                </p>
+
+
+                <hr>
+
+
+                <p
+                    id="profileCreated"
+                >
+                    —
+                </p>
+
+
+                <p
+                    id="profileAge"
+                >
+                    —
+                </p>
+
+
+                <p
+                    id="profileStreak"
+                >
+                    —
+                </p>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- =========================
+         LLAMADA
+    ========================== -->
+
+    <div
+        id="callOverlay"
+        class="callOverlay hidden"
+    >
+
+        <div class="callBox">
+
+            <h2
+                id="callTitle"
+            >
+                Llamando...
+            </h2>
+
+            <p
+                id="callNumberDisplay"
+            >
+                —
+            </p>
+
+
+            <div class="callButtons">
+
+                <button
+                    id="answerCallBtn"
+                    type="button"
+                >
+                    Contestar
+                </button>
+
+                <button
+                    id="hangupBtn"
+                    type="button"
+                >
+                    Colgar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CÁMARA
+    ========================== -->
+
+    <div
+        id="cameraOverlay"
+        class="cameraOverlay hidden"
+    >
+
+        <video
+            id="cameraVideo"
+            autoplay
+            playsinline
+            muted
+        ></video>
+
+
+        <div class="cameraControls">
+
+            <button
+                id="takePhotoBtn"
+                type="button"
+            >
+                Tomar foto
+            </button>
+
+            <button
+                id="closeCameraBtn"
+                type="button"
+            >
+                Cerrar
+            </button>
+
+        </div>
+
+
+        <canvas
+            id="photoCanvas"
+            hidden
+        ></canvas>
+
+    </div>
+
+</div>
+
+
+<script src="./app.js"></script>
+
+</body>
+
+</html>

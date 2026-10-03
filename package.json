@@ -1,0 +1,16 @@
+{
+  "name": "mi-app-social",
+  "version": "1.0.0",
+  "description": "Aplicacion social con cuentas, chat y llamadas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "ws": "^8.18.3"
+  }
+}
